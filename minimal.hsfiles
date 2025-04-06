@@ -1,0 +1,29 @@
+{-# START_FILE minimal.hsfiles #-}
+{-# START_FILE package.yaml #-}
+name:               {{name}}
+version:            0.1.0.0
+
+dependencies:
+  - base >= 4.7 && < 5
+
+executables:
+  {{name}}:
+    main:                Main.hs
+    source-dirs:         src
+
+{-# START_FILE Setup.hs #-}
+import Distribution.Simple
+main = defaultMain
+
+{-# START_FILE src/Main.hs #-}
+module Main (main) where
+
+main :: IO ()
+main = do
+  putStrLn "hello world"
+
+{-# START_FILE README.md #-}
+# {{name}}
+
+Build: `stack build`
+Run: `stack exec {{name}}`
